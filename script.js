@@ -35,6 +35,7 @@ function createTodoItem(todo, todoIndex) {
     const todoId = 'todo-' + todoIndex;
     const li = document.createElement('li');
     li.className = 'todo';
+
     li.innerHTML = `
     <input type="checkbox" id="${todoId}">
                 <label for="${todoId}" class="custom-checkbox">
@@ -48,16 +49,27 @@ function createTodoItem(todo, todoIndex) {
                 </button>
     `;
 
+    const deleteBtn = li.querySelector('.delete-btn');
+    deleteBtn.addEventListener('click', () => {
+        deleteTodoItem(todoIndex);
+    })
+
     return li;
+};
+
+function deleteTodoItem(todoIndex) {
+    allTodos = allTodos.filter((_, i) => i !== todoIndex);
+    saveTodos();
+    updateTodoList();
 };
 
 function saveTodos() {
     const todosJson = JSON.stringify(allTodos);
     localStorage.setItem('todos', todosJson);
-}
+};
 
 // parse is converting back to an array
 function getTodos() {
     const todos = localStorage.getItem('todos') || '[]';
     return JSON.parse(todos);
-}
+};
