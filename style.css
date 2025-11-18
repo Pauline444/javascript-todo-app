@@ -3,3 +3,74 @@
     margin: 0;
     padding: 0;
 }
+
+:root {
+    --background: #181818;
+    --primary-color: #303030;
+    --secondary-color: #545454;
+    --accent-color: #aba1fe;
+    --text-color: #eaeaea;
+}
+
+body {
+    min-height: 100vh;
+    padding: 20px;
+    background-color: var(--background);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 100px;
+    margin-bottom: 30px;
+    font-size: 6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--accent-color);
+}
+
+.content {
+    width: 700px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#todo-input {
+    padding: 12px 20px;
+    width: 100%;
+    background: none;
+    border: 2px solid var(--secondary-color);
+    border-radius: 100px;
+    font: inherit;
+    color: var(--text-color);
+    caret-color: var(--accent-color);
+}
+
+#todo-input:focus {
+    outline: none;
+}
+
+form {
+    position: relative;
+}
+
+#add-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--accent-color);
+    height: 100%;
+    padding: 0 30px;
+    border: none;
+    border-radius: 100px;
+    font: inherit;
+    font-weight: 600;
+    color: var(--background);
+    cursor: pointer;
+}
